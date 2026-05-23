@@ -1,0 +1,20 @@
+on:
+  - push
+  - pull_request
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: astral-sh/setup-uv@v8.1.0
+      - run: uv build --out-dir dist
+      - name: Upload .whl
+        uses: actions/upload-artifact@v7
+        with:
+          path: dist/*.whl
+          archive: false
+      - name: Upload .tar.gz
+        uses: actions/upload-artifact@v7
+        with:
+          path: dist/*.tar.gz
+          archive: false
