@@ -18,7 +18,3 @@ def is_region_fully_transparent_np(image, box):
 
 def check_all_regions_transparency(image, boxes):
     return all(is_region_fully_transparent_np(image, box) for box in boxes)
-
-
-def check_any_regions_transparency(image, boxes):
-    return any(is_region_fully_transparent_np(image, box) for box in boxes)
