@@ -122,7 +122,7 @@ class MinecraftSkinV1_8(MinecraftSkin):  # type: ignore[pep8-naming]
         use_left_leg: bool = False,
         **kwargs: Any,
     ) -> MinecraftSkin:
-        from skin_types.legacy import LegacyMinecraftSkin
+        from mineskin.skin_types.legacy import LegacyMinecraftSkin
 
         match fmt:
             case MinecraftSkinFormat.V1_8:

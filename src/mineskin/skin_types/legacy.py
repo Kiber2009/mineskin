@@ -69,7 +69,7 @@ class LegacyMinecraftSkin(MinecraftSkin):
             )
 
     def convert(self, fmt: MinecraftSkinFormat, **kwargs: Any) -> MinecraftSkin:
-        from skin_types.new_1_8 import MinecraftSkinV1_8
+        from mineskin.skin_types.new_1_8 import MinecraftSkinV1_8
 
         match fmt:
             case MinecraftSkinFormat.LEGACY:
