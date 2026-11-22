@@ -25,6 +25,10 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     if: ${{ startsWith(github.ref, 'refs/tags/') || github.event_name == 'workflow_dispatch' }}
+    permissions:
+      id-token: write
+      contents: write
+      attestations: write
     steps:
       - uses: actions/checkout@v6
       - uses: astral-sh/setup-uv@v8.1.0
