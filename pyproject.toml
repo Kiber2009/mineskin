@@ -1,13 +1,13 @@
 [project]
 name = "mineskin"
-version = "0.1.0"
+version = "0.2.0"
 requires-python = ">=3.14"
 dependencies = [
     "numpy>=2.4.6",
-    "pillow>=12.2.0",
+    "pillow>=13.0.0",
 ]
 authors = [{ name = "Kiber2009", email = "92222946+kiber2009@users.noreply.github.com" }]
-description = "Simple Python library for working with Minecraft skins"
+description = "Simple Python library to work with Minecraft skins"
 readme = "README.md"
 license = "MIT"
 keywords = ["minecraft skin"]
@@ -36,4 +36,5 @@ Issues = "https://github.com/Kiber2009/mineskin/issues"
 [dependency-groups]
 dev = [
     "ruff>=0.15.14",
+     "pyrefly>=0.60.0"
 ]

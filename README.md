@@ -1,6 +1,6 @@
 # mineskin
 
-Simple Python library for working with Minecraft skins
+Simple Python library to work with Minecraft skins
 
 # Installation
 
@@ -13,26 +13,32 @@ Install `mineskin` from PyPI using your favorite package manager
 # Usage
 
 ```python
+from PIL import Image
+
 # Import library
 import mineskin
+from mineskin.skin_types.abc import MinecraftSkinFormat
 
 # Read skin from file
-with mineskin.MinecraftSkin.open("path/to/skin.png") as skin:
-    skin.load()
+with Image.open("path/to/skin.png") as img:
+    img.load()
+    
+    skin = mineskin.skin(img)
+    
+    # Check skin information
+    print(f"{skin.format=}")
+    print(f"{skin.slim=}")
+    print(f"{skin.has_overlay=}")
 
-# Check skin information
-print(skin.format)
-print(skin.is_slim())
-print(skin.has_overlay)
+    # Optimize skin (will mutate img object)
+    skin.optimize(keep_ears=False)
+    
+    # Convert skin to old (before 1.8) format
+    # This operation will create new Image object
+    legacy_skin = skin.convert(MinecraftSkinFormat.LEGACY)
 
-# Optimize skin
-skin.optimize()
-
-# Convert skin to old (before 1.8) format
-old_skin = skin.convert(mineskin.MinecraftSkinFormat.OLD)
-
-# Save the result
-old_skin.save("path/to/result.png")
+    # Save the result
+    legacy_skin.image.save("path/to/result.png")
 ```
 
 # Building from source
